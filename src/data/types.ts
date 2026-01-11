@@ -46,7 +46,10 @@ export const TInvoice = z.object({
   notes: z.string(),
   termLabel: z.string(),
   term: z.string(),
-})
+  theme: z.string().optional(),
+  footerLabel: z.string().optional(),
+  footer: z.string().optional(),
+}).passthrough()
 
 export type Invoice = TypeOf<typeof TInvoice>
 

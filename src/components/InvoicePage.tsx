@@ -33,7 +33,9 @@ interface Props {
 }
 
 const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
-  const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
+  const [invoice, setInvoice] = useState<Invoice>(
+    data ? { ...initialInvoice, ...data } : { ...initialInvoice }
+  )
   const [subTotal, setSubTotal] = useState<number>()
   const [saleTax, setSaleTax] = useState<number>()
 
@@ -139,9 +141,11 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
     }
   }, [onChange, invoice])
 
+  const pageClassName = `invoice-wrapper${invoice.theme === 'beige-black' ? ' theme-beige' : ''}`
+
   return (
     <Document pdfMode={pdfMode}>
-      <Page className="invoice-wrapper" pdfMode={pdfMode}>
+      <Page className={pageClassName} pdfMode={pdfMode}>
         {!pdfMode && <Download data={invoice} setData={(d) => setInvoice(d)} />}
 
         <View className="flex" pdfMode={pdfMode}>
@@ -432,18 +436,18 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
               <View className="w-50 p-5 flex" pdfMode={pdfMode}>
-                <EditableInput
-                  className="dark bold right ml-30"
-                  value={invoice.currency}
-                  onChange={(value) => handleChange('currency', value)}
-                  pdfMode={pdfMode}
-                />
                 <Text className="right bold dark w-auto" pdfMode={pdfMode}>
                   {(typeof subTotal !== 'undefined' && typeof saleTax !== 'undefined'
                     ? subTotal + saleTax
                     : 0
                   ).toFixed(2)}
                 </Text>
+                <EditableInput
+                  className="dark bold right ml-5"
+                  value={invoice.currency}
+                  onChange={(value) => handleChange('currency', value)}
+                  pdfMode={pdfMode}
+                />
               </View>
             </View>
           </View>
@@ -479,6 +483,26 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
             pdfMode={pdfMode}
           />
         </View>
+
+        {(invoice.footer || invoice.footerLabel || !pdfMode) && (
+          <View className="mt-30 bg-dark p-5" pdfMode={pdfMode}>
+            <EditableInput
+              className="white bold center"
+              placeholder="Footer Label"
+              value={invoice.footerLabel || ''}
+              onChange={(value) => handleChange('footerLabel', value)}
+              pdfMode={pdfMode}
+            />
+            <EditableTextarea
+              className="white center"
+              rows={2}
+              placeholder="Footer content (contact info, thank you message, etc.)"
+              value={invoice.footer || ''}
+              onChange={(value) => handleChange('footer', value)}
+              pdfMode={pdfMode}
+            />
+          </View>
+        )}
       </Page>
     </Document>
   )

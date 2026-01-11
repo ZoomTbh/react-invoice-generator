@@ -1,0 +1,43 @@
+{
+  "logo": "",
+  "logoWidth": 80,
+  "title": "QUOTATION",
+  "companyName": "D&M DIGITAL",
+  "name": "",
+  "companyAddress": "TEL: +250790800542/+250791449712",
+  "companyAddress2": "EMAIL: DMDIGITAL867@GMAIL.COM\nLOCATION: RWANDA KIGALI",
+  "companyCountry": "Rwanda",
+  "billTo": "TO THE ATTENTION OF",
+  "clientName": "BCD TRAVEL",
+  "clientAddress": "",
+  "clientAddress2": "",
+  "clientCountry": "Rwanda",
+  "invoiceTitleLabel": "Quotation n°",
+  "invoiceTitle": "008",
+  "invoiceDateLabel": "",
+  "invoiceDate": "06/01/25",
+  "invoiceDueDateLabel": "",
+  "invoiceDueDate": "",
+  "productLineDescription": "DESCRIPTION",
+  "productLineQuantity": "",
+  "productLineQuantityRate": "",
+  "productLineQuantityAmount": "TOTAL",
+  "productLines": [
+    {
+      "description": "Coverage Photo for two days",
+      "quantity": "1",
+      "rate": "450000.00"
+    }
+  ],
+  "subTotalLabel": "",
+  "taxLabel": "",
+  "totalLabel": "TOTAL :",
+  "currency": "Rwf",
+  "notesLabel": "",
+  "notes": "",
+  "termLabel": "Payment to the order of D&M Digital",
+  "term": "Payment method: 50% at contract signing and 50% at project completion",
+  "theme": "beige-black",
+  "footerLabel": "THANK YOU FOR YOUR TRUST.",
+  "footer": ""
+}

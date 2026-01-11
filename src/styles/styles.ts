@@ -4,6 +4,8 @@ const colorDark = '#222'
 const colorDark2 = '#666'
 const colorGray = '#e3e3e3'
 const colorWhite = '#fff'
+const colorBeige = '#f5f0e8'
+const colorBlack = '#1a1a1a'
 
 const styles: CSSClasses = {
   dark: {
@@ -20,6 +22,14 @@ const styles: CSSClasses = {
 
   'bg-gray': {
     backgroundColor: colorGray,
+  },
+
+  'bg-beige': {
+    backgroundColor: colorBeige,
+  },
+
+  'bg-black': {
+    backgroundColor: colorBlack,
   },
 
   flex: {
@@ -113,6 +123,10 @@ const styles: CSSClasses = {
     textAlign: 'right',
   },
 
+  center: {
+    textAlign: 'center',
+  },
+
   bold: {
     fontWeight: 'bold',
   },
@@ -130,6 +144,10 @@ const styles: CSSClasses = {
     fontSize: '13px',
     color: '#555',
     padding: '40px 35px',
+  },
+
+  'theme-beige': {
+    backgroundColor: colorBeige,
   },
 
   span: {
